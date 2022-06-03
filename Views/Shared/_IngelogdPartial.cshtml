@@ -1,0 +1,63 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Portfolio_Site.Areas.Identity.Data
+
+@inject SignInManager<_Portfolio_Site_User> SignInManager
+@inject UserManager<_Portfolio_Site_User> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <ul class="navbar-nav flex-grow-1 navabar-left">
+        <li class="nav-item tooltip2">
+            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Chat">Chat</a>
+            <span id="rondleiding1" class="tooltiptext">
+                <b>Chat:</b> Via de chat kunt u met op dat moment andere ingelogde gebruikers discuseren.
+                <br>
+                <button class="btn btn-primary" onclick="rondleidingVolgende('rondleiding1', 'rondleiding2')">Volgende</button>
+            </span>
+        </li>
+        <li class="nav-item tooltip2">
+            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Helpdesk">Helpdesk</a>
+            <span id="rondleiding2" class="tooltiptext">
+                <b>Helpdesk:</b> Op de helpdesk kunt u de meest gestelde vragen bekijken en staat onze email voor als u ons wilt contacteren.
+                <br>
+                <button class="btn btn-primary" onclick="rondleidingVolgende('rondleiding2', 'rondleiding3')">Volgende</button>
+            </span>
+        </li>
+        <li class="nav-item dropdown tooltip2">
+            <a class="nav-link  dropdown-toggle" asp-area="" asp-controller="Meldings" asp-action="OverzichtMeldingen" data-toggle="dropdown">Meldingen</a>
+            <span id="rondleiding3" class="tooltiptext">
+                <b>Meldingen:</b> Hier kunt u naar de meldingen of een melding aanmaken.
+                <br>
+                Hier kunt u ook een melding maken, dit kan publiek worden gedaan of anoniem.
+                <br>
+                <button class="btn btn-primary" onclick="rondleidingVolgende('rondleiding3', 'rondleiding5')">Volgende</button>
+            </span>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" asp-area="" asp-controller="Meldings" asp-action="OverzichtMeldingen">Alle meldingen</a></li>
+                <li><a class="dropdown-item" asp-area="" asp-controller="AnoniemeMeldings" asp-action="OverzichtMijnAnoniemeMeldingen">Anonieme meldingen</a></li>
+                <li><a class="dropdown-item" asp-area="" asp-controller="Meldings" asp-action="OverzichtMijnMeldingen">Mijn publieke meldingen</a></li>
+
+                <li class="dropdown-divider"></li>
+                <li><a class="dropdown-item" asp-area="" asp-controller="Meldings" asp-action="Create">Nieuwe publieke Melding</a></li>
+                <li><a class="dropdown-item" asp-area="" asp-controller="AnoniemeMeldings" asp-action="Create">Nieuwe anonieme melding</a></li>
+                @if (User.IsInRole("Moderator")) {
+                    <li class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a></li>
+                }
+            </ul>
+        </li>
+        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Moderator"))
+        {
+            <li class="nav-item dropdown tooltip2">
+                <a style="color:red" class="nav-link  dropdown-toggle" asp-area="" asp-controller="Meldings" asp-action="OverzichtMeldingen" data-toggle="dropdown">Moderator</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" asp-area="" asp-controller="Port_Eigenaar" asp-action="Index">Portfolio Eigenaar</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="Programeertaal" asp-action="Index">Programeer talen</a></li>
+                    
+                    <li class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a></li>
+                </ul>
+            </li>
+        }
+    </ul>
+}

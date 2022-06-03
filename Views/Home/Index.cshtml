@@ -1,0 +1,133 @@
+﻿@model Port_Eigenaar
+
+@{
+    ViewData["Title"] = "Homepage";
+}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/css/home.css" />
+
+</head>
+<body>
+
+    <div class="container-fluid bg-3 text-center">
+        <div class="text-center">
+            <h1 class="display-4">Portfolio</h1>
+            <p>Dit portfolio is van: @Model.Naam</p><br />
+            <a asp-area="" asp-controller="Home" asp-action="Rondleiding">Nieuw? Klik hier voor een rondleiding!</a>
+        </div>
+    </div>
+    <!-- First Slideshow -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://i.imgur.com/HuGZHRp.png" class=" w-100 " alt="Error loading image">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Wij helpen de burger</h3>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://i.imgur.com/QuAtI1o.png" class="d-block w-100" alt="Error loading image">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Wij houden misdaad uit uw buurt</h3>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://i.imgur.com/phknYex.png" class="d-block w-100" alt="Error loading image">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Wij zijn altijd bereikbaar</h3>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!-- First Container -->
+    <div class="container-fluid text-center">
+        <div class="row">
+            <div class="col-6 bg-1 container-fluid">
+                <h3 class="margin">Wie ben ik?</h3>
+                <h5>
+                    Mijn naam is @Model.Naam en ik ben @Model.Leeftijd jaar oud.
+                    Ik ben geboren op @Model.Geboortedatum en woon in @Model.Adres.
+                    <br>
+                    Mijn hobby's zijn: @Model.Hobbys
+                </h5>
+                <input class="btn btn-primary" type="button" value="Contacteer mij" onclick="location.href='@Url.Action("Helpdesk", "Home")'" />
+            </div>
+            <div class="col-6 container-fluid ">
+                <img src="~/images/@Model.ProfilePicture" class="img-responsive rounded-circle img-circle margin" style="display:inline" alt="Profiel foto portfolio eigenaar" width="350" max-height="500" /> 
+            </div>
+        </div>
+    </div>
+    <!-- Second Container -->
+    <div class="container-fluid bg-2 text-center">
+        <div class="container-fluid">
+            <h3 class="margin">Waarom ik programmeer</h3>
+            <p>
+                @Model.BeschrijvingProgrammeer
+            </p>
+        </div>
+    </div>
+
+    <!-- Third Container (Grid) -->
+    <div class="container-fluid text-center">
+        <h3 class="margin">Wat kunt u zien in dit portfolio?</h3><br>
+    </div>
+
+    <div class="accordion">
+        <ul>
+            <li>
+                <a>
+                    <div class="content">
+                        <h1>Projecten / werkervaring</h1>
+                        <p>
+                            Op deze site kunt u zien wat voor projecten ik al heb gemaakt en wat voor werkervaring ik heb.
+                            Ook is deze site gemaakt op basis van een schoolproject en bijgewerkt om mijn kennis met programeren te laten zien.
+                        </p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <div class="content">
+                        <h1>Programeerkennis</h1>
+                        <p>
+                            Te vinden op deze site is ook met welke programeertalen ik al bekend ben.
+                            Hierbij is ook te zien wat ik mijn kennis niveau hierbij vind.
+                        </p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <div class="content">
+                        <h1>Opleiding</h1>
+                        <p>
+                            Ook kunt u hier zien welke opleidingen ik tot nu toe heb gevolgd en aan het volgen ben.
+
+                        </p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

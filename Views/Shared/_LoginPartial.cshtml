@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Portfolio_Site.Areas.Identity.Data
+
+@inject SignInManager<_Portfolio_Site_User> SignInManager
+@inject UserManager<_Portfolio_Site_User> UserManager
+<ul class="navbar-nav flex-grow-1 navabar-right">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item dropdown tooltip2">
+            <a class="nav-link  dropdown-toggle" asp-area="" asp-controller="Identity" asp-action="Index" data-toggle="dropdown">User: @UserManager.GetUserName(User)</a>
+            <span id="rondleiding5" class="tooltiptext">
+                <b>Account:</b> Hier kunt u naar uw account of de rondleiding.
+                <br>
+                <button class="btn btn-primary" onclick="rondleidingVolgende('rondleiding5', 'rondleidingFinal')">Volgende</button>
+            </span>
+
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Mijn Account</a></li>
+                <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Rondleiding">Rondleiding</a></li>
+            </ul>
+        </li>
+
+        <li class="nav-item tooltip2">
+            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="logout" type="submit" class="btn btn-secondary btn-sm ">Logout</button>
+            </form>
+            <span id="rondleidingFinal" class="tooltiptext">
+                <b>Logout:</b> Via deze knop kunt u weer uitloggen. Bedankt voor het bekijken van deze rondleiding en veel plezier op BuurSecure.
+                <br>
+                <button class="btn btn-primary" onclick="rondleidingUit()">Stop rondleiding</button>
+            </span>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+    }
+</ul>

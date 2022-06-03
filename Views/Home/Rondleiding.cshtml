@@ -1,0 +1,159 @@
+﻿@{
+    ViewData["Title"] = "Rondleiding";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="~/css/helpdesk.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .fa-anchor, .fa-coffee {
+            font-size: 200px
+        }
+
+        .fa-lock {
+            font-size: 200px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+
+                    <div class="faq-title text-center pb-3">
+                        <h2>Rondleiding BuurSecure</h2>
+                    </div>
+                    <div class="text-center pb-8">
+                        <p>
+                            Hier volgt een rondleiding over BuurSecure waar de site voor u wordt uitgelegdt.
+                            Mocht u hier geen interesse in hebben kunt u via de header terug naar de site.
+                        <p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+            <div class="w3-content">
+
+
+                <div class="w3-twothird">
+                    <h1>Hoe werkt de rondleiding?</h1>
+                    <p class="w3-text-grey">
+                        Door op de onderstaande knop te drukken zal de pop-up rondleiding over BuurSecure aangezet worden. U ziet dan een pop-up onder de header verschijnen met basis-informatie.
+                        <br>
+                        Hieronder staan de pagina's in meer details uitgelegd.
+                    </p>
+                    <button id="rondleidingAan" onclick="rondleidingAan()">Start rondleiding</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-padding-64 w3-container">
+            <div class="w3-content">
+                <div class="w3-twothird">
+                    <h1>Homepage</h1>
+                    <p class="w3-text-grey">
+                        Op de homepagina kunt u informatie over BuurSecure lezen. Hieronder valt wat Buursecure is, wie wij zijn en wat u op BuurSecure kunt.
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+            <div class="w3-content">
+
+
+                <div class="w3-twothird">
+                    <h1>Chat</h1>
+                    <p class="w3-text-grey">
+                        Via de chat kunt u met op dat moment andere ingelogde gebruikers discuseren over bijvoorbeeld problemen die er op dat moment zijn. Let op, hier wordt uw email als gebruikernaam gebruikt en andere kunnen dit zien.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-padding-64 w3-container">
+            <div class="w3-content">
+                <div class="w3-twothird">
+                    <h1>Helpdesk</h1>
+                    <p class="w3-text-grey">
+                        Op de helpdesk kunt u de meest gestelde vragen bekijken en staat onze email voor als u ons wilt contacteren.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+            <div class="w3-content">
+                <div class="w3-twothird">
+                    <h1>Meldingen</h1>
+                    <p class="w3-text-grey">
+                        Dit is de pagina waar BuurSecure om draait, u kunt kiezen of u alle meldingen wilt zien. Hier staat een overzicht met alle meldingen van andere gebruikers en die van u zelf. Op meldingen kan gereageerd worden zodat u samen naar een oplossing kan zoeken.
+                        Meldingen kunnen worden geliked, worden inclusief datum vermeld en laten het aantal reacties en aantal keer bekeken zien. Via deze knop kunt u ook uw meldingen zien en uw anonieme meldingen. Alle meldingen kunnen worden gesorteerd en hebben een zoekfunctie.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-padding-64 w3-container">
+            <div class="w3-content">
+                <div class="w3-twothird">
+                    <h1>Melding maken</h1>
+                    <p class="w3-text-grey">
+                        Hier kunt u een melding maken, dit kan publiek worden gedaan of anoniem. Anonieme meldingen zijn alleen zichtbaar voor moderators en verder kan niemand behalve jijzelf dit zien.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+            <div class="w3-content">
+                <div class="w3-twothird">
+                    <h1>Account</h1>
+                    <p class="w3-text-grey">
+                        U kunt naar een account pagina waar u al uw account data kunt bijwerken en zo nodig verwijderen.
+                        Ook kunt u via deze knop terug naar deze rondleiding.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-padding-64 w3-container">
+            <div class="w3-content">
+                <div class="w3-twothird">
+                    <h1>Log uit</h1>
+                    <p class="w3-text-grey">
+                        Via deze knop kunt u weer uitloggen. Bedankt voor het bekijken van deze rondleiding en veel plezier op BuurSecure.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<script>
+    function rondleidingAan() {
+        document.getElementById("rondleiding0").style.visibility = "visible";
+    }
+    function rondleidingVolgende(spandieuitmoet, spandieaanmoet) {
+        document.getElementById(spandieuitmoet).style.visibility = "hidden";
+        document.getElementById(spandieaanmoet).style.visibility = "visible";
+    }
+    function rondleidingUit() {
+        document.getElementById("rondleidingFinal").style.visibility = "hidden";
+    }
+</script>

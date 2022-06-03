@@ -1,0 +1,74 @@
+@model Portfolio_Site.Models.Port_Eigenaar
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Port_Eigenaar</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Naam" class="control-label"></label>
+                <input asp-for="Naam" class="form-control" />
+                <span asp-validation-for="Naam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Leeftijd" class="control-label"></label>
+                <input asp-for="Leeftijd" class="form-control" />
+                <span asp-validation-for="Leeftijd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Geboortedatum" class="control-label"></label>
+                <input asp-for="Geboortedatum" class="form-control" />
+                <span asp-validation-for="Geboortedatum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adres" class="control-label"></label>
+                <input asp-for="Adres" class="form-control" />
+                <span asp-validation-for="Adres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BeschrijvingProgrammeer" class="control-label"></label>
+                <input asp-for="BeschrijvingProgrammeer" class="form-control" />
+                <span asp-validation-for="BeschrijvingProgrammeer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MiddelbareSchool" class="control-label"></label>
+                <input asp-for="MiddelbareSchool" class="form-control" />
+                <span asp-validation-for="MiddelbareSchool" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HogereSchool" class="control-label"></label>
+                <input asp-for="HogereSchool" class="form-control" />
+                <span asp-validation-for="HogereSchool" class="text-danger"></span>
+            </div>
+            @* Form voor image *@
+            <div class="form-group">  
+                <label asp-for="ProfilePicture" class="control-label"></label>  
+                <div class="custom-file">  
+                    <input asp-for="ProfilePicture" class="custom-file-input" id="customFile">  
+                    <label class="custom-file-label" for="customFile">Choose file</label>  
+                </div>  
+                <span asp-validation-for="ProfilePicture" class="text-danger"></span>  
+            </div>  
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
