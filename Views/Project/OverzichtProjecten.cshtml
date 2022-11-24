@@ -50,6 +50,12 @@
     .bg-custom {
         background-color: rgb(51, 51, 51);
     }
+
+    .Center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 </style>
 <body class="w3-light-grey">
 
@@ -251,7 +257,7 @@
                 @foreach (var item in Model)
                 {
                     <div class="w3-card-4 w3-margin w3-white">
-                        <img src="@("~/Images/"+@item.ImageName)" asp-append-version="true" class="img-responsive margin rounded float-left img-thumbnail" style="width:100%" alt="Image">
+                        <img src="@("~/Images/"+@item.ImageName)" asp-append-version="true" class="img-responsive margin rounded Center img-thumbnail" style="width:100% length:20%" alt="Image">
                         <div class="w3-container">
                             <h3>
                                 <b> @item.Titel</b>
