@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ktmyjJD47yt0hYj8NfOT85Z2PuQj68DXNgTgzQOYTRUEYbjqjl+YBjItIZ+FZ1wKCCpB3tWD1WVLIxTtxDeiqQ==",
+  "dgSpecHash": "QAKxQW5vsP4KxvzRSRcSNBNye5zqNqA1MbB5j9ZylXYDv9C7QrWgLFaba8uV1glK24zZ9xkLxyyO4zCy5sFxYw==",
   "success": true,
   "projectFilePath": "C:\\Users\\fabia\\OneDrive\\Documenten\\HHS - ICT\\Jaar 3\\.Stage\\Portfolio_Site\\Portfolio_Site.csproj",
   "expectedPackageFiles": [
@@ -148,7 +148,8 @@
     "C:\\Users\\fabia\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\fabia\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\fabia\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\fabia\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\fabia\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\fabia\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
   ],
   "logs": []
 }

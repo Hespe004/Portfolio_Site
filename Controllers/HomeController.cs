@@ -57,6 +57,8 @@ namespace Portfolio_Site.Controllers
             if (_context.Port_Eigenaar.Count()>=1) {
                 port_Eigenaar = await _context.Port_Eigenaar.FirstOrDefaultAsync();
             }
+
+            ViewData["Hobbys"] = _context.Hobbys.ToList();
             
             return View(port_Eigenaar);
         }

@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Portfolio_Site.Models.ViewModels
 {
-    public class MaakMeldingVM
+    public class MaakProjectVM
     {
         public string UserID { get; set; }
 
-        public int MeldingID { get; set; }
+        public int ProjectID { get; set; }
 
         [Required]
         [MinLength(3, ErrorMessage = "De titel moet minimaal 3 karakters bevatten")]
@@ -39,10 +39,5 @@ namespace Portfolio_Site.Models.ViewModels
         [DisplayName("Upload foto")]
         public IFormFile ImageFile { get; set; }
 
-        public Boolean Gesloten { get; set; }
-
-        public Boolean WordtVerwijderd { get; set; }
-
-        public DateTime VerwijderDatum { get; set; }
     }
 }

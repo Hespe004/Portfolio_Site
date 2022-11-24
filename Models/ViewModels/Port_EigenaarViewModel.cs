@@ -12,6 +12,8 @@ namespace Portfolio_Site.ViewModels
 {
     public class Port_EigenaarViewModel
     {
+        [Key]
+        public int Id { get; set; }
         public string Naam { get; set; }
         public int Leeftijd { get; set; }
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
@@ -23,8 +25,6 @@ namespace Portfolio_Site.ViewModels
         public string BeschrijvingProgrammeer { get; set; }
         public string MiddelbareSchool { get; set; }
         public string HogereSchool { get; set; }
-
-        public List<Programeertaal> Programeertaalen { get; set; }
 
         public string Foto { get; set; }
 

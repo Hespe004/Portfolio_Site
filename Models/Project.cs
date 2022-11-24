@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Portfolio_Site.Models
 {
-    public class Project : MeldingBase
+    public class Project : ProjectBase
     {
 
         public virtual _Portfolio_Site_User User { get; set; }

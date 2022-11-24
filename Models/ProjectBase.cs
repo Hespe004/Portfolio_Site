@@ -6,10 +6,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Portfolio_Site.Models
 {
-    public class MeldingBase
+    public class ProjectBase
     {
         [Key]
         public int MeldingID { get; set; }
+
+        public string Foto { get; set; }
 
         [Required]
         [MinLength(3, ErrorMessage = "De titel moet minimaal 3 karakters bevatten")]
@@ -19,12 +21,11 @@ namespace Portfolio_Site.Models
         [MinLength(10, ErrorMessage = "De omschrijving moet minimaal 10 karakters bevatten")]
         public string Omschrijving { get; set; }
 
-        public virtual Categorie Categorie { get; set; }
-
-        public string Foto { get; set; }
 
         [Required]
         public int CategorieID { get; set; }
+        public virtual Categorie Categorie { get; set; }
+
         public DateTime Datum { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]
@@ -34,12 +35,6 @@ namespace Portfolio_Site.Models
         [NotMapped]
         [DisplayName("Upload foto")]
         public IFormFile ImageFile { get; set; }
-
-        public Boolean Gesloten { get; set; }
-
-        public Boolean WordtVerwijderd { get; set; }
-
-        public DateTime VerwijderDatum { get; set; }
 
     }
 }

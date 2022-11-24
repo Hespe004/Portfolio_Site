@@ -66,9 +66,13 @@
                 <h3 class="margin">Wie ben ik?</h3>
                 <h5>
                     Mijn naam is @Model.Naam en ik ben @Model.Leeftijd jaar oud.
-                    Ik ben geboren op @Model.Geboortedatum en woon in @Model.Adres.
-                    <br>
-                    Mijn hobby's zijn: @Model.Hobbys
+                    Ik ben geboren op @Model.Geboortedatum.ToString("d MMMM yyyy") en woon in @Model.Adres.
+                    <br><br>
+                    Mijn hobby's zijn:
+                    @foreach (var hobby in ViewData["Hobbys"] as IEnumerable<Hobby>)
+                    {
+                        <h5>@hobby.Naam</h5>
+                    }
                 </h5>
                 <input class="btn btn-primary" type="button" value="Contacteer mij" onclick="location.href='@Url.Action("Helpdesk", "Home")'" />
             </div>

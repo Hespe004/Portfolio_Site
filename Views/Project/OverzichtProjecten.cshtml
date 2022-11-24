@@ -1,0 +1,334 @@
+﻿@model Portfolio_Site.Models.ViewModels.GepagineerdeLijst<Project>
+@{
+    ViewData["Title"] = "Melding Overzicht";
+}
+
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+    body, h1, h2, h3, h4, h5 {
+        font-family: "Raleway", sans-serif
+    }
+
+    a.navbar-brand {
+        white-space: normal;
+        text-align: center;
+        word-break: break-all;
+    }
+
+        a.navbar-brand:hover {
+            color: #1da78b !important;
+        }
+
+    .navbar {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border: 0;
+        border-radius: 0;
+        margin-bottom: 0;
+        font-size: 12px;
+        letter-spacing: 5px;
+    }
+
+    .navbar-nav li a:hover {
+        color: #1da78b !important;
+    }
+
+    a {
+        color: #ffffff;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-color: #1da78b;
+        border-color: #167a66;
+    }
+
+    .bg-custom {
+        background-color: rgb(51, 51, 51);
+    }
+</style>
+<body class="w3-light-grey">
+
+    <!-- w3-content defines a container for fixed size centered content,
+    and is wrapped around the whole page content, except for the footer in this example -->
+    <div class="w3-content" style="max-width:1400px">
+        <!-- Grid -->
+        <div class="w3-row">
+            <!-- Introduction menu -->
+            <div class="w3-col l4">
+                <!-- Kaart met info over pagina -->
+                <div class="w3-card w3-margin w3-margin-top">
+                    <div class="w3-container w3-white">
+                        <h4><b>Publieke meldingen</b></h4>
+                        <p>Op deze pagina vindt u alle publieke meldingen die zijn gedaan door u en uw buurtbewoners. U kunt de meldingen sorteren en filteren in het menu hieronder.</p>
+                    </div>
+                </div><hr>
+
+                <!-- Kaart met sorteeropties -->
+                <div class="w3-card w3-margin">
+                    <div class="w3-container w3-padding">
+                        <h4>Sorteer</h4>
+                    </div>
+                    <form asp-action="OverzichtMeldingen" method="get">
+                        <ul class="w3-ul w3-white">
+                            <li class="w3-padding-16">
+                                <label for="sorteerType">Sorteer op:</label>
+                                <select style="float:right;width:200px" id="sorteerType" name="sorteerType" size="1">
+                                    @if ("Datum".Equals(ViewData["SorteerType"]) || ViewData["sorteerType"] == null)
+                                    {
+                                        <option selected value="Datum">Datum</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Datum">Datum</option>
+                                    }
+                                    @if ("Likes".Equals(ViewData["SorteerType"]))
+                                    {
+                                        <option selected value="Likes">Likes</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Likes">Likes</option>
+                                    }
+                                    @if ("Reacties".Equals(ViewData["SorteerType"]))
+                                    {
+                                        <option selected value="Reacties">Reacties</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Reacties">Reacties</option>
+                                    }
+                                </select>
+                            </li>
+                            <li class="w3-padding-16">
+                                <label for="sorteerVolgorde">Volgorde:</label>
+                                <select style="float:right;width:200px" id="sorteerVolgorde" name="sorteerVolgorde" size="1">
+                                    @if ("oplopend".Equals(ViewData["sorteerVolgorde"]))
+                                    {
+                                        <option selected value="oplopend">↑ Oplopend</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="oplopend">↑ Oplopend</option>
+                                    }
+                                    @if ("aflopend".Equals(ViewData["sorteerVolgorde"]) || ViewData["sorteerVolgorde"] == null)
+                                    {
+                                        <option selected value="aflopend">↓ Aflopend</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="aflopend">↓ Aflopend</option>
+                                    }
+                                </select>
+                            </li>
+                            <li class="w3-padding-16">
+                                <label for="status">Status:</label>
+                                <select style="float:right;width:200px" id="status" name="status" size="1">
+                                    @if ("Open".Equals(ViewData["Status"]))
+                                    {
+                                        <option selected value="Open">Open</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Open">Open</option>
+                                    }
+                                    @if ("Gesloten".Equals(ViewData["Status"]))
+                                    {
+                                        <option selected value="Gesloten">Gesloten</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Gesloten">Gesloten</option>
+                                    }
+                                    @if ("Toon alles".Equals(ViewData["Status"]))
+                                    {
+                                        <option selected value="Toon alles">Toon alles</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Toon alles">Toon alles</option>
+                                    }
+                                </select>
+                            </li>
+                            <li class="w3-padding-16">
+                                <label for="poster">Van:</label>
+                                <select style="float:right;width:200px" id="poster" name="poster" size="1">
+                                    @if ("Toon alles".Equals(ViewData["Poster"]))
+                                    {
+                                        <option selected value="Toon alles">Iedereen</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Toon alles">Iedereen</option>
+                                    }
+                                    @if ("Eigen".Equals(ViewData["Poster"]))
+                                    {
+                                        <option selected value="Eigen">Mijzelf</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Eigen">Mijzelf</option>
+                                    }
+                                </select>
+                            </li>
+                            <li class="w3-padding-16">
+                                <label for="start">Startdatum:</label>
+                                <input style="float:right;width:200px" type="date" id="date1" name="date1" value='@ViewData["Date1"]'><br />
+                                <label for="start">Einddatum:</label>
+                                <input style="float:right;width:200px" type="date" id="date2" name="date2" value='@ViewData["Date2"]'><br />
+                            </li>
+                            <li class="w3-padding-16">
+                                @if ((bool)@ViewData["Likedby"])
+                                {
+                                    <input style="float:right" type="checkbox" id="likedby" name="likedby" value="true" checked>
+                                    <label for="likedby">Toon alleen mijn likes:</label><br>
+                                }
+                                else
+                                {
+                                    <input style="float:right" type="checkbox" id="likedby" name="likedby" value="true">
+                                    <label for="likedby">Toon alleen mijn likes:</label><br>
+                                }
+                            </li>
+                            <li class="w3-padding-16">
+                                Zoek: <input style="float:right;width:200px" type="text" name="filter" value='@ViewData["Filter"]' />
+                                <input type="hidden" name="pagina" value=0 />
+                            </li>
+                            <li class="w3-padding-16">
+                                <input type="submit" value="Filter" class="w3-button w3-padding-large w3-white w3-border" style="display: inline-block;" />
+                                <span> <a class="w3-button w3-padding-large w3-white w3-border" asp-action="OverzichtMeldingen" style="display: inline-block; text-align:right">Reset</a></span>
+                            </li>
+
+                        </ul>
+                    </form>
+                </div>
+                <hr>
+                <!-- Einde Introductie Menu -->
+            </div>
+
+            <!-- Meldingen -->
+            <div class="w3-col l8 s12">
+
+                <!--Paginering-->
+                @if (Model.HeeftVolgende() || Model.HeeftVorige())
+                {
+                    <div class="w3-card-4 w3-margin w3-white">
+                        <div class="w3-row w3-container">
+                            <br />
+                            <div class="w3-col s4 w3-left">
+                                @if (Model.HeeftVorige())
+                                {
+                                    <a style="text-align: left;"
+                                       button class="w3-button w3-padding-large w3-white w3-border"
+                                       asp-action="OverzichtMeldingen"
+                                       asp-route-pagina="@(@Model.Pagina - 1)"
+                                       asp-route-sorteerVolgorde='@ViewData["sorteerVolgorde"]'
+                                       asp-route-sorteerType='@ViewData["sorteerType"]'
+                                       asp-route-Filter='@ViewData["Filter"]'>Vorige</a>
+                                }
+                            </div>
+                            <div class="w3-col s4 w3-right">
+                                @if (Model.HeeftVolgende())
+                                {
+                                    <a style="float:right" button class="w3-button w3-padding-large w3-white w3-border"
+                                       asp-action="OverzichtMeldingen"
+                                       asp-route-pagina="@(@Model.Pagina + 1)"
+                                       asp-route-sorteerVolgorde='@ViewData["sorteerVolgorde"]'
+                                       asp-route-sorteerType='@ViewData["sorteerType"]'
+                                       asp-route-Filter='@ViewData["Filter"]'>Volgende</a>
+                                }
+                            </div>
+                            <br />
+                        </div>
+                        <br />
+                    </div>
+                }
+
+                <!-- Melding -->
+                @foreach (var item in Model)
+                {
+                    <div class="w3-card-4 w3-margin w3-white">
+                        <img src="@("~/Images/"+@item.ImageName)" asp-append-version="true" class="img-responsive margin rounded float-left img-thumbnail" style="width:100%" alt="Image">
+                        <div class="w3-container">
+                            <h3>
+                                <b> @item.Titel</b>
+                            </h3>
+                            <h5>Categorie: @item.Categorie.Naam <br><span class="w3-opacity">Melding gemaakt door: @item.User.UserName</span></h5>
+                        </div>
+
+                        <div class="w3-container">
+                            <div class="w3-row">
+                                <div class="w3-col m12 s12">
+                                    @if (item.Omschrijving.Length > 150)
+                                    {
+                                        @item.Omschrijving.Substring(0, 100)@Html.Raw("...")
+                                    }
+                                    else
+                                    {
+                                        @item.Omschrijving
+                                    }
+                                    <br>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="w3-row">
+                                <div class="w3-col m8 w3-hide-small">
+                                    <br />
+                                    <i class="fa fa-calendar"></i> @item.Datum |
+                                    <i class="fa fa-eye"></i> @item.AantalViews |
+                                </div>
+                                <div class="w3-col m4 s4">
+                                    <a asp-action="Details" button class="w3-button w3-padding-large w3-white w3-border" asp-route-id="@item.MeldingID" style="float:right">Lees verder</a>
+                                </div>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                }
+                <!-- Einde melding -->
+
+                <!--Paginering-->
+                @if (Model.HeeftVolgende() || Model.HeeftVorige())
+                {
+                    <div class="w3-card-4 w3-margin w3-white">
+                        <div class="w3-row w3-container">
+                            <br />
+                            <div class="w3-col s4 w3-left">
+                                @if (Model.HeeftVorige())
+                                {
+                                    <a style="text-align: left;"
+                                       button class="w3-button w3-padding-large w3-white w3-border"
+                                       asp-action="OverzichtMeldingen"
+                                       asp-route-pagina="@(@Model.Pagina - 1)"
+                                       asp-route-sorteerVolgorde='@ViewData["sorteerVolgorde"]'
+                                       asp-route-sorteerType='@ViewData["sorteerType"]'
+                                       asp-route-Filter='@ViewData["Filter"]'>Vorige</a>
+                                }
+                            </div>
+                            <div class="w3-col s4 w3-right">
+                                @if (Model.HeeftVolgende())
+                                {
+                                    <a style="float:right" button class="w3-button w3-padding-large w3-white w3-border"
+                                       asp-action="OverzichtMeldingen"
+                                       asp-route-pagina="@(@Model.Pagina + 1)"
+                                       asp-route-sorteerVolgorde='@ViewData["sorteerVolgorde"]'
+                                       asp-route-sorteerType='@ViewData["sorteerType"]'
+                                       asp-route-Filter='@ViewData["Filter"]'>Volgende</a>
+                                }
+                            </div>
+                            <br />
+                        </div>
+                        <br />
+                    </div>
+                }
+            </div>
+
+            <!-- Einde meldingen -->
+        </div><br>
+
+    </div>
+
+</body>

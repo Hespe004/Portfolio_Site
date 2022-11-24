@@ -19,13 +19,9 @@ namespace Portfolio_Site.Models
         public DateTime Geboortedatum { get; set; }
         public string Adres { get; set; }
 
-        public List<Hobby> Hobbys { get; set; }
-
         public string BeschrijvingProgrammeer { get; set; }
         public string MiddelbareSchool { get; set; }
         public string HogereSchool { get; set; }
-
-        public List<Programeertaal> Programeertaalen { get; set; }
 
         [Required(ErrorMessage = "Please choose profile picture")]  
         public string ProfilePicture { get; set; }  
@@ -35,6 +31,7 @@ namespace Portfolio_Site.Models
     public class Hobby {
         [Key]
         public int Id { get; set; }
+        public Port_Eigenaar port_Eigenaar { get; set; }
 
         public string Naam { get; set; }
     }

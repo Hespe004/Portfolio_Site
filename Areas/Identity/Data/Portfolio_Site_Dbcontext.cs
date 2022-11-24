@@ -25,8 +25,8 @@ namespace Portfolio_Site.Data
 
         public DbSet<Port_Eigenaar> Port_Eigenaar { get; set; }
 
-        public DbSet<Portfolio_Site.Models.Programeertaal> Programeertaal { get; set; }
-
+        public DbSet<Programeertaal> Programeertaal { get; set; }
+        public DbSet<Hobby> Hobbys { get; set; }
 
     }
 }

@@ -10,7 +10,5 @@ namespace Portfolio_Site.Models
         public int CategorieID { get; set; }
 
         public string Naam { get; set; }
-
-        public virtual IList<Project> Projects { get; set; }
     }
 }

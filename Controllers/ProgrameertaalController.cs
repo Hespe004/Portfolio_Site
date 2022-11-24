@@ -54,11 +54,15 @@ namespace Portfolio_Site.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Naam,Kennis")] Programeertaal programeertaal)
+        public async Task<IActionResult> Create(int id, [Bind("Naam,Kennis")] Programeertaal programeertaal)
         {
+            //programeertaal.port_Eigenaar = eigenaar;
             if (ModelState.IsValid)
             {
+                Port_Eigenaar eigenaar = await _context.Port_Eigenaar.FindAsync(id);
+                programeertaal.port_Eigenaar = eigenaar;
                 _context.Add(programeertaal);
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

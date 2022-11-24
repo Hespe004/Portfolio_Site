@@ -246,14 +246,14 @@ namespace Portfolio_Site.Migrations
                     b.Property<string>("Naam")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("Port_EigenaarId")
+                    b.Property<int?>("port_EigenaarId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Port_EigenaarId");
+                    b.HasIndex("port_EigenaarId");
 
-                    b.ToTable("Hobby");
+                    b.ToTable("Hobbys");
                 });
 
             modelBuilder.Entity("Portfolio_Site.Models.Port_Eigenaar", b =>
@@ -332,9 +332,6 @@ namespace Portfolio_Site.Migrations
                     b.Property<string>("Foto")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("Gesloten")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(100)");
 
@@ -348,12 +345,6 @@ namespace Portfolio_Site.Migrations
 
                     b.Property<string>("UserID")
                         .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("VerwijderDatum")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("WordtVerwijderd")
-                        .HasColumnType("INTEGER");
 
                     b.HasKey("MeldingID");
 
@@ -417,15 +408,17 @@ namespace Portfolio_Site.Migrations
 
             modelBuilder.Entity("Portfolio_Site.Models.Hobby", b =>
                 {
-                    b.HasOne("Portfolio_Site.Models.Port_Eigenaar", null)
-                        .WithMany("Hobbys")
-                        .HasForeignKey("Port_EigenaarId");
+                    b.HasOne("Portfolio_Site.Models.Port_Eigenaar", "port_Eigenaar")
+                        .WithMany()
+                        .HasForeignKey("port_EigenaarId");
+
+                    b.Navigation("port_Eigenaar");
                 });
 
             modelBuilder.Entity("Portfolio_Site.Models.Programeertaal", b =>
                 {
                     b.HasOne("Portfolio_Site.Models.Port_Eigenaar", "port_Eigenaar")
-                        .WithMany("Programeertaalen")
+                        .WithMany()
                         .HasForeignKey("port_EigenaarId");
 
                     b.Navigation("port_Eigenaar");
@@ -434,7 +427,7 @@ namespace Portfolio_Site.Migrations
             modelBuilder.Entity("Portfolio_Site.Models.Project", b =>
                 {
                     b.HasOne("Portfolio_Site.Models.Categorie", "Categorie")
-                        .WithMany("Projects")
+                        .WithMany()
                         .HasForeignKey("CategorieID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -451,18 +444,6 @@ namespace Portfolio_Site.Migrations
             modelBuilder.Entity("Portfolio_Site.Areas.Identity.Data._Portfolio_Site_User", b =>
                 {
                     b.Navigation("Projects");
-                });
-
-            modelBuilder.Entity("Portfolio_Site.Models.Categorie", b =>
-                {
-                    b.Navigation("Projects");
-                });
-
-            modelBuilder.Entity("Portfolio_Site.Models.Port_Eigenaar", b =>
-                {
-                    b.Navigation("Hobbys");
-
-                    b.Navigation("Programeertaalen");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,152 @@
+﻿@model Project
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+    body, h1, h2, h3, h4, h5 {
+        font-family: "Raleway", sans-serif
+    }
+
+    a.navbar-brand {
+        white-space: normal;
+        text-align: center;
+        word-break: break-all;
+    }
+
+        a.navbar-brand:hover {
+            color: #1da78b !important;
+        }
+
+    .navbar {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border: 0;
+        border-radius: 0;
+        margin-bottom: 0;
+        font-size: 12px;
+        letter-spacing: 5px;
+    }
+
+    .navbar-nav li a:hover {
+        color: #1da78b !important;
+    }
+
+    a {
+        color: #ffffff;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-color: #1da78b;
+        border-color: #167a66;
+    }
+
+    .bg-custom {
+        background-color: rgb(51, 51, 51);
+    }
+</style>
+<body class="w3-light-grey">
+
+    <!-- w3-content defines a container for fixed size centered content,
+    and is wrapped around the whole page content, except for the footer in this example -->
+    <div class="w3-content" style="max-width:1400px">
+        <!-- Grid -->
+        <div class="w3-row">
+            <!-- Introduction menu -->
+            <div class="w3-col l4">
+                <!-- Kaart met info over pagina -->
+                <div class="w3-card w3-margin w3-margin-top">
+                    <div class="w3-container w3-white">
+                        <h4><b>Publieke melding aanmaken</b></h4>
+                        <p>Op deze pagina kunt u een publieke melding aanmaken. Uw publieke melding kunt u terugvinden in het overzicht samen met de publieke meldingen van andere gebruikers.</p>
+                    </div>
+                </div><hr>
+
+                <!-- Kaart met sorteeropties -->
+                <div class="w3-card w3-margin w3-margin-top">
+                    <div class="w3-container w3-white">
+                        <h4><b>Voorwaarden:</b></h4>
+                        <p>Zorg dat u zich bij het maken van een melding aan de volgende voorwaarden houdt:</p>
+                        <ul class="w3-ul w3-white">
+                            <li class="w3-padding-16"></li>
+                            <li class="w3-padding-16">De gemeente moet iets aan uw probleem kunnen doen</li>
+                            <li class="w3-padding-16">Uw probleem is een systematisch probleem</li>
+                            <li class="w3-padding-16">Uw probleem gaat meerdere burgers aan</li>
+                            <li class="w3-padding-16"></li>
+
+                        </ul>
+                        <p>Indien u een foto bij uw melding wilt uploaden is dit mogelijk. U heeft de mogelijkheid om maximaal één foto per melding up te loaden. Dit is niet verplicht.</p>
+                    </div>
+                </div><hr>
+                <!-- Einde Introductie Menu -->
+            </div>
+
+            <!-- Meldingen -->
+            <div class="w3-col l8 s12">
+
+                <!-- Melding -->
+                <div class="w3-card w3-margin">
+                    <div class="w3-container w3-padding">
+                        <h4>Nieuwe melding</h4>
+                    </div>
+                    <form asp-action="Create" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="UserID" value='@ViewData["LoggedInID"]' />
+                        <input type="hidden" asp-for="Datum" value=@DateTime.Now />
+                        <ul class="w3-ul w3-white">
+                            <li class="w3-padding-16">
+                                <label asp-for="Titel" class="control-label">Titel:</label>
+                                <input asp-for="Titel" class="form-control" data- />
+                                <span asp-validation-for="Titel" class="text-danger"></span>
+                            </li>
+                            <li class="w3-padding-16">
+                                <label asp-for="Omschrijving" class="control-label">Omschrijving:</label><br />
+                                <textarea asp-for="Omschrijving" class="form-control" rows="11"></textarea>
+                                <span asp-validation-for="Omschrijving" class="text-danger"></span>
+                            </li>
+                            <li class="w3-padding-16">
+                                <label class="control-label">Categorie:</label>
+                                <select asp-for="CategorieID" class="form-control">
+                                    @foreach (var categorie in ViewBag.categorieLijst)
+                                    {
+                                        <option value=@categorie.CategorieID>@categorie.Naam</option>
+                                    }
+                                </select>
+                            </li>
+                            <li class="w3-padding-16">
+                                <div class="form-group">
+                                    <label asp-for="ImageFile" class="control-label">Upload foto:</label><br />
+                                    <input asp-for="ImageFile" accept="image/*" />
+                                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                </div>
+                            </li>
+                            <li class="w3-padding-16">
+                                <div class="form-group">
+                                    <input type="submit" value="Create" class="btn btn-primary" />
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                    <!-- Einde melding -->
+                </div>
+
+                <!-- Einde meldingen -->
+            </div><br>
+        </div>
+
+
+</body>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
