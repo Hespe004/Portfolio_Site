@@ -253,7 +253,7 @@ namespace Portfolio_Site.Controllers
             }
             if (status == null)
             {
-                status = "Open";
+                status = "Toon alles";
             }
             if (poster == null)
             {
@@ -269,9 +269,8 @@ namespace Portfolio_Site.Controllers
             ViewData["Date1"] = DateFormat(date1);
             ViewData["Date2"] = DateFormat(date2);
             ViewData["LoggedInID"] = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            Boolean inclverwijderd = false;
             //Stuur een gepagineerde, gesorteerde en gefilterde lijst mee terug aan de view.
-            return View(await GepagineerdeLijst<Project>.CreateAsync(DateRange(Filter(Sort(sorteerVolgorde, sorteerType), filter, status, poster, likedby, inclverwijderd), date1, date2), pagina, 5));
+            return View(await GepagineerdeLijst<Project>.CreateAsync(DateRange(Filter(Sort(sorteerVolgorde, sorteerType), filter, status, poster), date1, date2), pagina, 5));
         }
 
         //Indexpagina die wordt gebruikt om eigen Projecten weer te geven, opgedeeld in pagina's
@@ -296,23 +295,26 @@ namespace Portfolio_Site.Controllers
 
             string poster = "Eigen";
             string status = "Toon alles";
-            bool likedby = false;
-            bool inclverwijderd = true;
             //Stuur een gepagineerde, gesorteerde en gefilterde lijst mee terug aan de view.
-            return View(await GepagineerdeLijst<Project>.CreateAsync(DateRange(Filter(Sort(sorteerVolgorde, sorteerType), filter, status, poster, likedby, inclverwijderd), date1, date2), pagina, 5));
+            return View(await GepagineerdeLijst<Project>.CreateAsync(DateRange(Filter(Sort(sorteerVolgorde, sorteerType), filter, status, poster), date1, date2), pagina, 5));
         }
 
         //Filtermethode die in een meegegeven lijst zoekt naar een bepaalde string. Geeft gefilterde lijst terug.
-        private IQueryable<Project> Filter(IQueryable<Project> lijst, string filter, string status, string poster, bool likedby, bool inclverwijderd)
+        private IQueryable<Project> Filter(IQueryable<Project> lijst, string filter, string status, string poster)
         {
 
             //Filter de lijst op basis van een zoekopdracht
             if (!String.IsNullOrEmpty(filter))
                 lijst = lijst.Where(s => s.Omschrijving.Contains(filter));
-            //Filter de lijst op basis van wie de Projectingen in de lijst hebben gedaan (iedereen of alleen de Projecten van de aanvrager)
+            //Filter de lijst op basis van wie de Projecten in de lijst hebben gedaan (iedereen of alleen de Projecten van de aanvrager)
             switch (poster)
             {
                 case "Eigen": lijst = lijst.Where(m => m.UserID == this.User.FindFirst(ClaimTypes.NameIdentifier).Value); break;
+                case "Toon alles": break;
+            }
+            switch (status) {
+                case "Werk Ervaring": lijst = lijst.Where(m => m.Categorie.Naam.Equals("Werk Ervaring")); break;
+                case "School Project": lijst = lijst.Where(m => m.Categorie.Naam.Equals("School Project")); break;
                 case "Toon alles": break;
             }
             return lijst;
@@ -359,46 +361,6 @@ namespace Portfolio_Site.Controllers
             return lijst;
         }
 
-        [Authorize(Roles = "Moderator")]
-        public async Task<IActionResult> ProjectSluiten(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var Project = await _context.Projects
-                .Include(m => m.Categorie)
-                .Include(m => m.User)
-                .FirstOrDefaultAsync(m => m.MeldingID == id);
-            if (Project == null)
-            {
-                return NotFound();
-            }
-
-            return View(Project);
-        }
-
-        // // POST: Projects/Delete/5
-        // [HttpPost, ActionName("ProjectSluiten")]
-        // [ValidateAntiForgeryToken]
-        // [Authorize(Roles = "Moderator")]
-        // public async Task<IActionResult> ProjectSluitenConfirmed(int id)
-        // {
-        //     //Zoek Project in context, sluit de Project, update de context, sla veranderingen op
-        //     var Project = await _context.Projects.FindAsync(id);
-        //     _context.ProjectsUpdate(Project);
-        //     if (reports.Any())
-        //     {
-        //         foreach(Report report in reports)
-        //         {
-        //             _context.Report.Remove(report);
-        //         }
-        //     }
-        //     await _context.SaveChangesAsync();
-        //     return RedirectToAction(nameof(OverzichtProjecten));
-        // }
-
         public string DateFormat(DateTime datum)
         {
             //Zet een datetime in het goede format zodat de notatie voor dagen en maanden /01/01 is ipv /1/1
@@ -443,13 +405,13 @@ namespace Portfolio_Site.Controllers
         [HttpPost, ActionName("ProjectVerwijderen")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Moderator")]
-        public async Task<IActionResult> ProjectVerwijderen(int id, string reden, DateTime verwijderdatum)
+        public async Task<IActionResult> ProjectVerwijderen(int id)
         {
             //Sluit de Project en markeer de Project als "wordtverwijderd". De Project wordt 7 dagen na de verwijderdatum verwijderd uit de database. De methode hiervoor staat in de startup.cs
             var Project = await _context.Projects.FindAsync(id);
-            Project.Titel = "Verwijderd: " + Project.Titel;
-            Project.Omschrijving = "Deze Project is verwijderd en zal op " + verwijderdatum.AddDays(7).ToShortDateString() + " uit de database verdwijnen. Reden: " + reden + " | " + Project.Omschrijving;
-            _context.Projects.Update(Project);
+            // Project.Titel = "Verwijderd: " + Project.Titel;
+            // Project.Omschrijving = "Dit Project is verwijderd" + " | " + Project.Omschrijving;
+            _context.Projects.Remove(Project);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(OverzichtProjecten));
         }

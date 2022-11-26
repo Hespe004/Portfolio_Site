@@ -118,7 +118,7 @@
                                     @if ((bool)ViewData["UserIsModerator"])
                                     {
                                         @Html.Raw(" | ")
-                                        <i class="fa fa-close" style="cursor:pointer; color:#B81414" onclick="location.href='@Url.Action("MeldingVerwijderen", "Meldings", new { Id = Model.MeldingID })'"></i>
+                                        <i class="fa fa-close" style="cursor:pointer; color:#B81414" onclick="location.href='@Url.Action("ProjectVerwijderen", "Project", new { Id = Model.MeldingID })'"></i>
                                     }
                                 </h6>
                             </div>

@@ -12,7 +12,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="~/css/home.css" />
-
 </head>
 <body>
 
@@ -20,6 +19,7 @@
         <div class="text-center">
             <h1 class="display-4">Portfolio</h1>
             <p>Dit portfolio is van: @Model.Naam</p><br />
+            <p>Deze site is gemaakt door: Fabian van Hespen en Roderick Heijligers</p><br />
             <a asp-area="" asp-controller="Home" asp-action="Rondleiding">Nieuw? Klik hier voor een rondleiding!</a>
         </div>
     </div>
@@ -79,7 +79,7 @@
                     }
                 </h5>
                 <br><br>
-                <input class="btn btn-primary" type="button" value="Contacteer mij" onclick="location.href='@Url.Action("Helpdesk", "Home")'" />
+                <input class="btn btn-primary" type="button" value="Contacteer mij" onclick="location.href='@Url.Action("Contact", "Home")'" />
             </div>
             <div class="col-6 container-fluid ">
                 <img src="~/images/@Model.ProfilePicture" class="img-responsive rounded-circle img-circle margin" style="display:inline" alt="Profiel foto portfolio eigenaar" width="350" max-height="500" /> 

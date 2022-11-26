@@ -15699,6 +15699,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\fabia\\OneDrive\\Documenten\\HHS - ICT\\Jaar 3\\.Stage\\Portfolio_Site\\Views\\Project\\ProjectVerwijderen.cshtml",
+      "TargetPath": "Views\\Project\\ProjectVerwijderen.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\fabia\\OneDrive\\Documenten\\HHS - ICT\\Jaar 3\\.Stage\\Portfolio_Site\\Views\\Project\\Edit.cshtml",
       "TargetPath": "Views\\Project\\Edit.cshtml",
       "FileKind": "mvc"
@@ -15756,11 +15761,6 @@
     {
       "FilePath": "c:\\Users\\fabia\\OneDrive\\Documenten\\HHS - ICT\\Jaar 3\\.Stage\\Portfolio_Site\\Views\\Project\\Index.cshtml",
       "TargetPath": "Views\\Project\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\fabia\\OneDrive\\Documenten\\HHS - ICT\\Jaar 3\\.Stage\\Portfolio_Site\\Views\\Project\\MeldingVerwijderen.cshtml",
-      "TargetPath": "Views\\Project\\MeldingVerwijderen.cshtml",
       "FileKind": "mvc"
     },
     {

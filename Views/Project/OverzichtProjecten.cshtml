@@ -69,8 +69,10 @@
                 <!-- Kaart met info over pagina -->
                 <div class="w3-card w3-margin w3-margin-top">
                     <div class="w3-container w3-white">
-                        <h4><b>Publieke meldingen</b></h4>
-                        <p>Op deze pagina vindt u alle publieke meldingen die zijn gedaan door u en uw buurtbewoners. U kunt de meldingen sorteren en filteren in het menu hieronder.</p>
+                        <h4><b>Ervaringen</b></h4>
+                        <p>Op deze pagina vindt u al ervarringen die ik tot nu toe heb opgedaan, denk hierbij aan werk en project ervaringen. 
+                        <br>
+                        U kunt de ervaringen sorteren en filteren in het menu hieronder.</p>
                     </div>
                 </div><hr>
 
@@ -79,7 +81,7 @@
                     <div class="w3-container w3-padding">
                         <h4>Sorteer</h4>
                     </div>
-                    <form asp-action="OverzichtMeldingen" method="get">
+                    <form asp-action="OverzichtProjecten" method="get">
                         <ul class="w3-ul w3-white">
                             <li class="w3-padding-16">
                                 <label for="sorteerType">Sorteer op:</label>
@@ -91,22 +93,6 @@
                                     else
                                     {
                                         <option value="Datum">Datum</option>
-                                    }
-                                    @if ("Likes".Equals(ViewData["SorteerType"]))
-                                    {
-                                        <option selected value="Likes">Likes</option>
-                                    }
-                                    else
-                                    {
-                                        <option value="Likes">Likes</option>
-                                    }
-                                    @if ("Reacties".Equals(ViewData["SorteerType"]))
-                                    {
-                                        <option selected value="Reacties">Reacties</option>
-                                    }
-                                    else
-                                    {
-                                        <option value="Reacties">Reacties</option>
                                     }
                                 </select>
                             </li>
@@ -132,23 +118,23 @@
                                 </select>
                             </li>
                             <li class="w3-padding-16">
-                                <label for="status">Status:</label>
+                                <label for="status">Soort:</label>
                                 <select style="float:right;width:200px" id="status" name="status" size="1">
-                                    @if ("Open".Equals(ViewData["Status"]))
+                                    @if ("Werk Ervaring".Equals(ViewData["Status"]))
                                     {
-                                        <option selected value="Open">Open</option>
+                                        <option selected value="Werk Ervaring">Werk ervaring</option>
                                     }
                                     else
                                     {
-                                        <option value="Open">Open</option>
+                                        <option value="Werk Ervaring">Werk ervaring</option>
                                     }
-                                    @if ("Gesloten".Equals(ViewData["Status"]))
+                                    @if ("School Project".Equals(ViewData["Status"]))
                                     {
-                                        <option selected value="Gesloten">Gesloten</option>
+                                        <option selected value="School Project">Project ervaring</option>
                                     }
                                     else
                                     {
-                                        <option value="Gesloten">Gesloten</option>
+                                        <option value="School Project">Project ervaring</option>
                                     }
                                     @if ("Toon alles".Equals(ViewData["Status"]))
                                     {
@@ -188,24 +174,12 @@
                                 <input style="float:right;width:200px" type="date" id="date2" name="date2" value='@ViewData["Date2"]'><br />
                             </li>
                             <li class="w3-padding-16">
-                                @if ((bool)@ViewData["Likedby"])
-                                {
-                                    <input style="float:right" type="checkbox" id="likedby" name="likedby" value="true" checked>
-                                    <label for="likedby">Toon alleen mijn likes:</label><br>
-                                }
-                                else
-                                {
-                                    <input style="float:right" type="checkbox" id="likedby" name="likedby" value="true">
-                                    <label for="likedby">Toon alleen mijn likes:</label><br>
-                                }
-                            </li>
-                            <li class="w3-padding-16">
                                 Zoek: <input style="float:right;width:200px" type="text" name="filter" value='@ViewData["Filter"]' />
                                 <input type="hidden" name="pagina" value=0 />
                             </li>
                             <li class="w3-padding-16">
                                 <input type="submit" value="Filter" class="w3-button w3-padding-large w3-white w3-border" style="display: inline-block;" />
-                                <span> <a class="w3-button w3-padding-large w3-white w3-border" asp-action="OverzichtMeldingen" style="display: inline-block; text-align:right">Reset</a></span>
+                                <span> <a class="w3-button w3-padding-large w3-white w3-border" asp-action="OverzichtProjecten" style="display: inline-block; text-align:right">Reset</a></span>
                             </li>
 
                         </ul>
@@ -262,7 +236,7 @@
                             <h3>
                                 <b> @item.Titel</b>
                             </h3>
-                            <h5>Categorie: @item.Categorie.Naam <br><span class="w3-opacity">Melding gemaakt door: @item.User.UserName</span></h5>
+                            <h5>Categorie: @item.Categorie.Naam <br><span class="w3-opacity">Ervaring geplaatst door: @item.User.UserName</span></h5>
                         </div>
 
                         <div class="w3-container">

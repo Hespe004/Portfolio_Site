@@ -200,7 +200,6 @@ C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\De
 C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\Project\Edit.cshtml.g.cs
 C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\Project\Index.cshtml.g.cs
 C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\Project\MeldingSluiten.cshtml.g.cs
-C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\Project\MeldingVerwijderen.cshtml.g.cs
 C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\Categories\Create.cshtml.g.cs
 C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\Categories\Delete.cshtml.g.cs
 C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\Categories\Details.cshtml.g.cs
@@ -224,3 +223,4 @@ C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\De
 C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\HogereSchool\Edit.cshtml.g.cs
 C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\HogereSchool\Index.cshtml.g.cs
 C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\Home\Contact.cshtml.g.cs
+C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\Project\ProjectVerwijderen.cshtml.g.cs
