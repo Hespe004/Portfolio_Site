@@ -27,6 +27,8 @@ namespace Portfolio_Site.Data
 
         public DbSet<Programeertaal> Programeertaal { get; set; }
         public DbSet<Hobby> Hobbys { get; set; }
+        public DbSet<MiddelbareSchool> MiddelbareSchools {get;set;}
+        public DbSet<HogereSchool> HogereSchools {get;set;}
 
     }
 }

@@ -8,19 +8,19 @@
 {
     <ul class="navbar-nav flex-grow-1 navabar-left">
         <li class="nav-item tooltip2">
-            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="OverMij">Over mij</a>
             <span id="rondleiding1" class="tooltiptext">
-                <b>Contact:</b> Via de Contact pagina kunt u mijn contact gegevens vinden.
+                <b>Over mij:</b> Via de over mij pagina kunt u informatie vinden over wie ik ben en wat ik doe.
                 <br>
                 <button class="btn btn-primary" onclick="rondleidingVolgende('rondleiding1', 'rondleiding2')">Volgende</button>
             </span>
         </li>
         <li class="nav-item tooltip2">
-            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Helpdesk">Helpdesk</a>
-            <span id="rondleiding2" class="tooltiptext">
-                <b>Helpdesk:</b> Op de helpdesk kunt u de meest gestelde vragen bekijken en staat onze email voor als u ons wilt contacteren.
+            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+            <span id="rondleiding1" class="tooltiptext">
+                <b>Contact:</b> Via de Contact pagina kunt u mijn contact gegevens vinden.
                 <br>
-                <button class="btn btn-primary" onclick="rondleidingVolgende('rondleiding2', 'rondleiding3')">Volgende</button>
+                <button class="btn btn-primary" onclick="rondleidingVolgende('rondleiding1', 'rondleiding2')">Volgende</button>
             </span>
         </li>
 
@@ -34,6 +34,14 @@
                 <button class="btn btn-primary" onclick="rondleidingVolgende('rondleiding3', 'rondleiding5')">Volgende</button>
             </span>
         </li>
+        <li class="nav-item tooltip2">
+            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Helpdesk">Helpdesk</a>
+            <span id="rondleiding2" class="tooltiptext">
+                <b>Helpdesk:</b> Op de helpdesk kunt u de meest gestelde vragen bekijken en staat onze email voor als u ons wilt contacteren.
+                <br>
+                <button class="btn btn-primary" onclick="rondleidingVolgende('rondleiding2', 'rondleiding3')">Volgende</button>
+            </span>
+        </li>
         @if (SignInManager.IsSignedIn(User) && User.IsInRole("Moderator"))
         {
             <li class="nav-item dropdown tooltip2">
@@ -41,10 +49,12 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" asp-area="" asp-controller="Port_Eigenaar" asp-action="Index">Portfolio Eigenaar</a></li>
                     <li><a class="dropdown-item" asp-area="" asp-controller="Programeertaal" asp-action="Index">Programeer talen</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="Hobby" asp-action="Index">Hobby's</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="MiddelbareSchool" asp-action="Index">Middelbare school</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="HogereSchool" asp-action="Index">Hogere school</a></li>
                     
                     <li class="dropdown-divider"></li>
                     <li><a class="dropdown-item" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a></li>
-                    <li><a class="dropdown-item" asp-area="" asp-controller="Hobby" asp-action="Index">Hobby's</a></li>
                     
                     <li class="dropdown-divider"></li>
                     <li><a class="dropdown-item" asp-area="" asp-controller="Project" asp-action="Create">Nieuwe ervaring toevoegen</a></li>

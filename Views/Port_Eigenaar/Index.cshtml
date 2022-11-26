@@ -22,16 +22,28 @@
                 @Html.DisplayNameFor(model => model.Geboortedatum)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Nationaliteit)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Adres)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.PostCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plaats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LinkedIn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefoon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.BeschrijvingProgrammeer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MiddelbareSchool)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HogereSchool)
             </th>
 
             <th></th>
@@ -52,16 +64,28 @@
                 @Html.DisplayFor(modelItem => item.Geboortedatum)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Nationaliteit)
+            </td>            
+            <td>
                 @Html.DisplayFor(modelItem => item.Adres)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.PostCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plaats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LinkedIn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefoon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.BeschrijvingProgrammeer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MiddelbareSchool)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HogereSchool)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
@@ -69,7 +93,10 @@
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
             <td>
-                <a asp-controller="Programeertaal" asp-action="Create" asp-route-id="@item.Id">Programeertalen</a>
+                <a asp-controller="Programeertaal" asp-action="Create" asp-route-id="@item.Id">Programeertalen</a> <br>
+                <a asp-controller="Hobby" asp-action="Create" asp-route-id="@item.Id">Hobby's</a> <br>
+                <a asp-controller="MiddelbareSchool" asp-action="Create" asp-route-id="@item.Id">Middelbare School</a> <br>
+                <a asp-controller="HogereSchool" asp-action="Create" asp-route-id="@item.Id">Hogere School</a>
             </td>
         </tr>
 }

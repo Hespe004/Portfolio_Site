@@ -212,3 +212,15 @@ C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\De
 C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\Hobby\Details.cshtml.g.cs
 C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\Hobby\Edit.cshtml.g.cs
 C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\Hobby\Index.cshtml.g.cs
+C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\Home\OverMij.cshtml.g.cs
+C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\MiddelbareSchool\Create.cshtml.g.cs
+C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\MiddelbareSchool\Delete.cshtml.g.cs
+C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\MiddelbareSchool\Details.cshtml.g.cs
+C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\MiddelbareSchool\Edit.cshtml.g.cs
+C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\MiddelbareSchool\Index.cshtml.g.cs
+C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\HogereSchool\Create.cshtml.g.cs
+C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\HogereSchool\Delete.cshtml.g.cs
+C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\HogereSchool\Details.cshtml.g.cs
+C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\HogereSchool\Edit.cshtml.g.cs
+C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\HogereSchool\Index.cshtml.g.cs
+C:\Users\fabia\OneDrive\Documenten\HHS - ICT\Jaar 3\.Stage\Portfolio_Site\obj\Debug\net5.0\Razor\Views\Home\Contact.cshtml.g.cs

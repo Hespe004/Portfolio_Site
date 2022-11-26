@@ -1,0 +1,74 @@
+@model Port_Eigenaar
+
+@{
+    ViewData["Title"] = "Contact";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="~/css/helpdesk.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <style>
+        .fa-anchor, .fa-coffee {
+            font-size: 200px
+        }
+
+        .fa-lock {
+            font-size: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="faq-title text-center pb-3">
+                        <h2>Contact</h2>
+                    </div>
+                    <div class="text-center pb-8">
+                        <p>
+                            Mocht u na het bekijken van deze site mij willen contacteren kan dat via deze gegevens.
+                        <p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+            <div class="w3-content">
+                <div class="w3-twothird">
+                    <h1>Adres</h1>
+                    <p class="w3-text-grey">
+                        Ik woon in @Model.Plaats.
+                        <br>
+                        @Model.Adres, @Model.PostCode.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-padding-64 w3-container">
+            <div class="w3-content">
+                <div class="w3-twothird">
+                    <h1>Ik ben te contacteren op</h1>
+                    <p class="w3-text-grey">
+                        LinkedIn: @Model.LinkedIn
+                        <br>
+                        Telefoonnummer: @Model.Telefoon
+                        <br>
+                        E-mailadres: @Model.Email
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

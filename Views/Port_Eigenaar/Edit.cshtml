@@ -29,34 +29,47 @@
                 <span asp-validation-for="Geboortedatum" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Nationaliteit" class="control-label"></label>
+                <input asp-for="Nationaliteit" class="form-control" />
+                <span asp-validation-for="Nationaliteit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Adres" class="control-label"></label>
                 <input asp-for="Adres" class="form-control" />
                 <span asp-validation-for="Adres" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="PostCode" class="control-label"></label>
+                <input asp-for="PostCode" class="form-control" />
+                <span asp-validation-for="PostCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Plaats" class="control-label"></label>
+                <input asp-for="Plaats" class="form-control" />
+                <span asp-validation-for="Plaats" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LinkedIn" class="control-label"></label>
+                <input asp-for="LinkedIn" class="form-control" />
+                <span asp-validation-for="LinkedIn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <label asp-for="Telefoon" class="control-label"></label>
+                <input asp-for="Telefoon" class="form-control" />
+                <span asp-validation-for="Telefoon" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
                 <label asp-for="BeschrijvingProgrammeer" class="control-label"></label>
                 <input asp-for="BeschrijvingProgrammeer" class="form-control" />
                 <span asp-validation-for="BeschrijvingProgrammeer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MiddelbareSchool" class="control-label"></label>
-                <input asp-for="MiddelbareSchool" class="form-control" />
-                <span asp-validation-for="MiddelbareSchool" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HogereSchool" class="control-label"></label>
-                <input asp-for="HogereSchool" class="form-control" />
-                <span asp-validation-for="HogereSchool" class="text-danger"></span>
-            </div>
-            @* Form voor image *@
-            <div class="form-group">  
-                <label asp-for="ProfilePicture" class="control-label"></label>  
-                <div class="custom-file">  
-                    <input asp-for="ProfilePicture" class="custom-file-input" id="customFile" accept="image/*">  
-                    <label class="custom-file-label" for="customFile">Choose file</label>  
-                </div>  
-                <span asp-validation-for="ProfilePicture" class="text-danger"></span>  
-            </div>  
+            </div> 
+
+            <input asp-for="ProfilePicture" type="hidden" class="form-control" />
 
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

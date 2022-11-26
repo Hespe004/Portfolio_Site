@@ -77,10 +77,14 @@ namespace Portfolio_Site.Controllers
                     Naam = model.Naam,  
                     Leeftijd = model.Leeftijd,
                     Geboortedatum = model.Geboortedatum,
+                    Nationaliteit = model.Nationaliteit,
                     Adres = model.Adres,
+                    PostCode = model.PostCode,
+                    Plaats = model.Plaats,
+                    LinkedIn = model.LinkedIn,
+                    Telefoon = model.Telefoon,
+                    Email = model.Email,
                     BeschrijvingProgrammeer = model.BeschrijvingProgrammeer,
-                    MiddelbareSchool = model.MiddelbareSchool,
-                    HogereSchool = model.HogereSchool,
                     ProfilePicture = uniqueFileName,  
                 };  
                 _context.Add(employee);  
@@ -139,7 +143,7 @@ namespace Portfolio_Site.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Naam,Leeftijd,Geboortedatum,Adres,BeschrijvingProgrammeer,MiddelbareSchool,HogereSchool,Foto,ImageName")] Port_Eigenaar port_Eigenaar)
+        public async Task<IActionResult> Edit(int id, Port_Eigenaar port_Eigenaar)
         {
             if (id != port_Eigenaar.Id)
             {
@@ -194,6 +198,19 @@ namespace Portfolio_Site.Controllers
         {
             var port_Eigenaar = await _context.Port_Eigenaar.FindAsync(id);
             _context.Port_Eigenaar.Remove(port_Eigenaar);
+
+            foreach(var item in _context.Programeertaal.Where(x=>x.port_Eigenaar.Id==port_Eigenaar.Id))
+                _context.Programeertaal.Remove(item);
+
+            foreach(var item in _context.MiddelbareSchools.Where(x=>x.port_Eigenaar.Id==port_Eigenaar.Id))
+                _context.MiddelbareSchools.Remove(item);
+
+            foreach(var item in _context.HogereSchools.Where(x=>x.port_Eigenaar.Id==port_Eigenaar.Id))
+                _context.HogereSchools.Remove(item);
+
+            foreach(var item in _context.Hobbys.Where(x=>x.port_Eigenaar.Id==port_Eigenaar.Id))
+                _context.Hobbys.Remove(item);
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

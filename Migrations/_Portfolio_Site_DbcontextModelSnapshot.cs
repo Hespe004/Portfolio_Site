@@ -256,6 +256,62 @@ namespace Portfolio_Site.Migrations
                     b.ToTable("Hobbys");
                 });
 
+            modelBuilder.Entity("Portfolio_Site.Models.HogereSchool", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Begin_Datum")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Eind_Datum")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Naam")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Opleiding")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("port_EigenaarId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("port_EigenaarId");
+
+                    b.ToTable("HogereSchools");
+                });
+
+            modelBuilder.Entity("Portfolio_Site.Models.MiddelbareSchool", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Begin_Datum")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Eind_Datum")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Naam")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Opleiding")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("port_EigenaarId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("port_EigenaarId");
+
+                    b.ToTable("MiddelbareSchools");
+                });
+
             modelBuilder.Entity("Portfolio_Site.Models.Port_Eigenaar", b =>
                 {
                     b.Property<int>("Id")
@@ -268,24 +324,36 @@ namespace Portfolio_Site.Migrations
                     b.Property<string>("BeschrijvingProgrammeer")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Geboortedatum")
+                    b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("HogereSchool")
+                    b.Property<DateTime>("Geboortedatum")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Leeftijd")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("MiddelbareSchool")
+                    b.Property<string>("LinkedIn")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Naam")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Nationaliteit")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Plaats")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PostCode")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("ProfilePicture")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("Telefoon")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -407,6 +475,24 @@ namespace Portfolio_Site.Migrations
                 });
 
             modelBuilder.Entity("Portfolio_Site.Models.Hobby", b =>
+                {
+                    b.HasOne("Portfolio_Site.Models.Port_Eigenaar", "port_Eigenaar")
+                        .WithMany()
+                        .HasForeignKey("port_EigenaarId");
+
+                    b.Navigation("port_Eigenaar");
+                });
+
+            modelBuilder.Entity("Portfolio_Site.Models.HogereSchool", b =>
+                {
+                    b.HasOne("Portfolio_Site.Models.Port_Eigenaar", "port_Eigenaar")
+                        .WithMany()
+                        .HasForeignKey("port_EigenaarId");
+
+                    b.Navigation("port_Eigenaar");
+                });
+
+            modelBuilder.Entity("Portfolio_Site.Models.MiddelbareSchool", b =>
                 {
                     b.HasOne("Portfolio_Site.Models.Port_Eigenaar", "port_Eigenaar")
                         .WithMany()

@@ -1,0 +1,165 @@
+﻿@model Port_Eigenaar
+
+@{
+    ViewData["Title"] = "Over mij";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Over mij</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="~/css/helpdesk.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <style>
+        .fa-anchor, .fa-coffee {
+            font-size: 200px
+        }
+
+        .fa-lock {
+            font-size: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="faq-title text-center pb-3">
+                        <h2>Over mij</h2>
+                    </div>
+                    <div class="text-center pb-8">
+                        <p>
+                            Hier volgt informatie over mij, waar te lezen is wie ik ben en wat ik doe.
+                        <p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+            <div class="w3-content">
+                <div class="w3-twothird">
+                    <h1>Wie ben ik?</h1>
+                    <p class="w3-text-grey">
+                        Mijn naam is @Model.Naam.
+                        <br>
+                        Ik ben @Model.Leeftijd jaar oud en woon momenteel in @Model.Adres.
+                        <br>
+                        Ik ben geboren op @Model.Geboortedatum.ToString("d MMMM yyyy").
+                        <br><br>
+                        Mijn hobby's zijn:
+                        <br>
+                        @ViewBag.HobbyString
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-padding-64 w3-container">
+            <div class="w3-content">
+                <div class="w3-twothird">
+                    <h1>Waarom programmeer ik?</h1>
+                    <p class="w3-text-grey">
+                        @Model.BeschrijvingProgrammeer
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+            <div class="w3-content">
+                <div class="w3-twothird">
+                    <h1>Welke programmeertalen ken ik?</h1>
+                        <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-padding-64 w3-container">
+            <div class="w3-content">
+                <div class="w3-twothird">
+                    <h1>Huidige studie</h1>
+                    <p class="w3-text-grey">                  
+                        <p>Ik studeer aan: @ViewBag.HogereSchool.Naam. Hier volg ik de studie @ViewBag.HogereSchool.Opleiding.</p>
+                        <p>Ik begon aan deze studie op @ViewBag.HogereSchool.Begin_Datum.ToString("d MMMM yyyy") en verwacht hiermee klaar te zijn op @ViewBag.HogereSchool.Eind_Datum.ToString("d MMMM yyyy")</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+            <div class="w3-content">
+                <div class="w3-twothird">
+                    <h1>Middelbare school</h1>
+                    <p class="w3-text-grey">
+                        <p>Op de @ViewBag.Middelbare.Naam heb ik de studie @ViewBag.Middelbare.Opleiding gevolgd.</p>
+                        <p>Ik begon aan deze studie op @ViewBag.Middelbare.Begin_Datum.ToString("d MMMM yyyy") en heb deze afgerond op @ViewBag.Middelbare.Eind_Datum.ToString("d MMMM yyyy")</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<script>
+    function rondleidingAan() {
+        document.getElementById("rondleiding0").style.visibility = "visible";
+    }
+    function rondleidingVolgende(spandieuitmoet, spandieaanmoet) {
+        document.getElementById(spandieuitmoet).style.visibility = "hidden";
+        document.getElementById(spandieaanmoet).style.visibility = "visible";
+    }
+    function rondleidingUit() {
+        document.getElementById("rondleidingFinal").style.visibility = "hidden";
+    }
+
+    var xValues = [];
+
+    @foreach (var d in @ViewBag.Talen)
+    {
+        @:xValues.push("@d.Naam");
+    }
+    var yValues = [];
+    @foreach (var d in @ViewBag.Talen)
+    {
+        @:yValues.push("@d.Kennis");
+    }
+    var barColors = ["red", "green","blue","orange","brown","yellow","black","grey","purple"];
+
+    new Chart("myChart", {
+    type: "horizontalBar",
+    data: {
+        labels: xValues,
+        datasets: [{
+            backgroundColor: 'darkBlue',
+            data: yValues
+        }]
+    },
+    options: {
+        responsive: true,
+        tooltips: {
+            mode: 'index',
+            intersect: true
+        },
+        scales: {
+            xAxes: [{ticks: {min: 0, max:5, stepSize: 1}}]
+        },
+        hover: {
+            mode: 'index',
+            intersect: true
+        },
+        legend: {display: false},
+        title: {
+            display: true,
+            text: "Hoe veel kennis heb ik met:"
+        }
+    }
+    });
+</script>

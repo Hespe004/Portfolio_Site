@@ -18,19 +18,23 @@ namespace Portfolio_Site.ViewModels
         public int Leeftijd { get; set; }
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Geboortedatum { get; set; }
-        public string Adres { get; set; }
 
-        public List<Hobby> Hobbys { get; set; }
+        public string Nationaliteit { get; set; }
+
+        //contact info
+        public string Adres { get; set; }
+        public string PostCode { get; set; }
+        public string Plaats { get; set; }
+        public string LinkedIn { get; set; }
 
         public string BeschrijvingProgrammeer { get; set; }
-        public string MiddelbareSchool { get; set; }
-        public string HogereSchool { get; set; }
 
         public string Foto { get; set; }
 
         [Required(ErrorMessage = "Please choose profile image")]  
         [Display(Name = "Profile Picture")]  
-        public IFormFile ProfileImage { get; set; } 
-
+        public IFormFile ProfileImage { get; set; }
+        public int Telefoon { get; set; }
+        public string Email { get; set; }
     }
 }
