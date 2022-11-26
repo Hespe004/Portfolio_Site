@@ -17,29 +17,27 @@
         </li>
         <li class="nav-item tooltip2">
             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
-            <span id="rondleiding1" class="tooltiptext">
+            <span id="rondleiding2" class="tooltiptext">
                 <b>Contact:</b> Via de Contact pagina kunt u mijn contact gegevens vinden.
                 <br>
-                <button class="btn btn-primary" onclick="rondleidingVolgende('rondleiding1', 'rondleiding2')">Volgende</button>
+                <button class="btn btn-primary" onclick="rondleidingVolgende('rondleiding2', 'rondleiding3')">Volgende</button>
             </span>
         </li>
 
         <li class="nav-item tooltip2">
             <a class="nav-link" asp-area="" asp-controller="Project" asp-action="OverzichtProjecten">Ervaring</a>
             <span id="rondleiding3" class="tooltiptext">
-                <b>Meldingen:</b> Hier kunt u naar de meldingen of een melding aanmaken.
+                <b>Ervaring:</b> Hier kunt u mijn ervaring tot nu toe zien. Denk hierbiij aan werk ervaring of school projecten.
                 <br>
-                Hier kunt u ook een melding maken, dit kan publiek worden gedaan of anoniem.
-                <br>
-                <button class="btn btn-primary" onclick="rondleidingVolgende('rondleiding3', 'rondleiding5')">Volgende</button>
+                <button class="btn btn-primary" onclick="rondleidingVolgende('rondleiding3', 'rondleiding4')">Volgende</button>
             </span>
         </li>
         <li class="nav-item tooltip2">
             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Helpdesk">Helpdesk</a>
-            <span id="rondleiding2" class="tooltiptext">
+            <span id="rondleiding4" class="tooltiptext">
                 <b>Helpdesk:</b> Op de helpdesk kunt u de meest gestelde vragen bekijken en staat onze email voor als u ons wilt contacteren.
                 <br>
-                <button class="btn btn-primary" onclick="rondleidingVolgende('rondleiding2', 'rondleiding3')">Volgende</button>
+                <button class="btn btn-primary" onclick="rondleidingVolgende('rondleiding4', 'rondleiding5')">Volgende</button>
             </span>
         </li>
         @if (SignInManager.IsSignedIn(User) && User.IsInRole("Moderator"))
